@@ -101,7 +101,7 @@ CLOUD_SECRET=your_cloud_secret
 
 **Saksham sharma**  
 Full Stack MERN Developer  
-📧 samuk0398l@gmail.com  
+📧 samuk0398@gmail.com  
 📌 https://www.linkedin.com/in/saksham-sharma-852522354?utm_source=share_via&utm_content=profile&utm_medium=member_android
 
 ---
