@@ -58,7 +58,7 @@ LMS/
 ## 🔧 Installation Instructions
 
 ### 1️⃣ Clone Repository
-git clone https://github.com/<Saksham13sharma>/LMS.git
+git clone https://github.com/saksham13sharma/LMS.git
 cd LMS
 
 ---
