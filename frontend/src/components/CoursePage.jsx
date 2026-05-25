@@ -6,7 +6,7 @@ import { Slide, toast, ToastContainer } from 'react-toastify';
 import { useAuth, useUser } from '@clerk/clerk-react';
 import {Toaster} from 'react-hot-toast';
 
-const API_BASE ="http://localhost:4000";
+const API_BASE ="https://lms-s5y3.onrender.com";
 
 
 const StarIcon =({filled = false ,half=false, className=" "})=>{
