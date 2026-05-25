@@ -1,40 +1,43 @@
 import express from 'express';
-import cors from 'cors'
+import cors from 'cors';
 import 'dotenv/config';
-import { clerkMiddleware } from '@clerk/express'
-import { connect } from 'mongoose';
+import { clerkMiddleware } from '@clerk/express';
 import { connectDB } from './config/db.js';
 import courseRouter from './routes/courseRoute.js';
 import bookingRouter from './routes/bookingRouter.js';
 
+const app = express();
 
-const app=express()
-const port=4000;
-
-
-//MIDDLEWARE
-app.use(cors({ origin:['http://localhost:5174','http://localhost:5173'],
-    credentials:true,
+// CORS
+app.use(cors({
+    origin: [
+        'http://localhost:5174',
+        'https://lms-sepia-beta.vercel.app'
+    ],
+    credentials: true,
 }));
-app.use(express.json())
-app.use(express.urlencoded({extended:true}))
-app.use(clerkMiddleware())
 
-app.use('/uploads',express.static('uploads'));
+app.use(express.json());
+app.use(express.urlencoded({ extended: true }));
+app.use(clerkMiddleware());
+
+app.use('/uploads', express.static('uploads'));
 
 // DB
 connectDB();
 
 // ROUTES
-app.use('/api/course',courseRouter)
-app.use('/api/booking',bookingRouter);
+app.use('/api/course', courseRouter);
+app.use('/api/booking', bookingRouter);
 
-
-//APP PORT AND LISTEN
-app.get('/',(req,res)=>{
-    res.send('API WORKING')
+// Default route
+app.get('/', (req, res) => {
+    res.send('API WORKING');
 });
 
-app.listen(port,(req,res)=>{
-    console.log(`server started on http://localhost:${port}`);
-})
+// PORT FIX (IMPORTANT)
+const port = process.env.PORT || 4000;
+
+app.listen(port, () => {
+    console.log(`Server started on port ${port}`);
+});
