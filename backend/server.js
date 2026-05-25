@@ -10,11 +10,12 @@ const app = express();
 
 // CORS
 app.use(cors({
-    origin: [
-        'http://localhost:5174',
-        'https://lms-sepia-beta.vercel.app'
-    ],
-    credentials: true,
+  origin: [
+    'http://localhost:5174',
+    'https://lms-sepia-beta.vercel.app',
+    'https://lms-git-main-sakshan6398-9479s-projects.vercel.app'
+  ],
+  credentials: true
 }));
 
 app.use(express.json());
